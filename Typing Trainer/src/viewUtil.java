@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Rushan
+ * @author Sulakshana Ranawake
  */
 public class viewUtil {
     

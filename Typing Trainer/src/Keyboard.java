@@ -25,7 +25,7 @@ public class Keyboard extends javax.swing.JFrame {
     public Keyboard() {
         
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard1.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard.png")));
         setTitle("Typing Trainer");
         try {
             lblKeyboard.setIcon(viewUtil.getScaledImage(lblKeyboard.getWidth(), lblKeyboard.getHeight(), getClass().getResource("images/keyboard.png")));
@@ -50,10 +50,13 @@ public class Keyboard extends javax.swing.JFrame {
         lblKeyboard = new javax.swing.JLabel();
         lb9 = new javax.swing.JLabel();
         btn2 = new javax.swing.JButton();
+        lblAuthor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        pnl4.setBackground(new java.awt.Color(255, 204, 204));
+        pnl4.setBackground(new java.awt.Color(204, 204, 204));
+        pnl4.setPreferredSize(new java.awt.Dimension(1100, 700));
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -70,45 +73,59 @@ public class Keyboard extends javax.swing.JFrame {
         btn2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         btn2.setForeground(new java.awt.Color(255, 51, 51));
         btn2.setText("Start");
+        btn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn2MouseClicked(evt);
+            }
+        });
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
             }
         });
 
+        lblAuthor.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        lblAuthor.setText("SulaRanawake");
+
         javax.swing.GroupLayout pnl4Layout = new javax.swing.GroupLayout(pnl4);
         pnl4.setLayout(pnl4Layout);
         pnl4Layout.setHorizontalGroup(
             pnl4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl4Layout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(pnl4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lb9, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnl4Layout.createSequentialGroup()
-                        .addGap(809, 809, 809)
-                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addGap(109, 109, 109)
+                .addComponent(lblKeyboard, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 84, Short.MAX_VALUE))
+            .addGroup(pnl4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblKeyboard, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGroup(pnl4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl4Layout.createSequentialGroup()
+                        .addComponent(lb9, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(386, 386, 386))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl4Layout.createSequentialGroup()
+                        .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl4Layout.createSequentialGroup()
+                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139))))
         );
         pnl4Layout.setVerticalGroup(
             pnl4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(23, 23, 23)
                 .addComponent(lb9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
+                .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblKeyboard, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,7 +136,7 @@ public class Keyboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl4, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
         );
 
         pack();
@@ -130,6 +147,10 @@ public class Keyboard extends javax.swing.JFrame {
         new TypingWindow().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseClicked
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_btn2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -170,6 +191,7 @@ public class Keyboard extends javax.swing.JFrame {
     private javax.swing.JButton btn2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lb9;
+    private javax.swing.JLabel lblAuthor;
     private javax.swing.JLabel lblKeyboard;
     private javax.swing.JPanel pnl4;
     // End of variables declaration//GEN-END:variables

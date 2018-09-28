@@ -1,3 +1,6 @@
+
+import java.awt.Toolkit;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +18,8 @@ public class WelcomeWindow extends javax.swing.JFrame {
      */
     public WelcomeWindow() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard.png")));
+        setTitle("Typing Trainer");
     }
 
     /**
@@ -30,22 +35,29 @@ public class WelcomeWindow extends javax.swing.JFrame {
         lb1 = new javax.swing.JLabel();
         btn1 = new javax.swing.JButton();
         lb2 = new javax.swing.JLabel();
+        lblAuthor = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        pnl1.setBackground(new java.awt.Color(255, 204, 204));
+        pnl1.setBackground(new java.awt.Color(204, 204, 204));
         pnl1.setForeground(new java.awt.Color(240, 240, 240));
-        pnl1.setPreferredSize(new java.awt.Dimension(1000, 580));
+        pnl1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnl1.setPreferredSize(new java.awt.Dimension(1100, 700));
 
-        lb1.setFont(new java.awt.Font("Bauhaus 93", 1, 50)); // NOI18N
+        lb1.setFont(new java.awt.Font("Bauhaus 93", 1, 70)); // NOI18N
         lb1.setForeground(new java.awt.Color(51, 0, 204));
         lb1.setText("Typing Trainer 1.0");
         lb1.setToolTipText("");
 
         btn1.setBackground(new java.awt.Color(255, 153, 255));
-        btn1.setFont(new java.awt.Font("Cooper Black", 1, 36)); // NOI18N
+        btn1.setFont(new java.awt.Font("Cooper Black", 1, 40)); // NOI18N
         btn1.setForeground(new java.awt.Color(204, 0, 0));
         btn1.setText("Begin");
+        btn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn1MouseClicked(evt);
+            }
+        });
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
@@ -55,47 +67,55 @@ public class WelcomeWindow extends javax.swing.JFrame {
         lb2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 24)); // NOI18N
         lb2.setText("Test your typing speed...");
 
+        lblAuthor.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        lblAuthor.setText("SulaRanawake");
+
         javax.swing.GroupLayout pnl1Layout = new javax.swing.GroupLayout(pnl1);
         pnl1.setLayout(pnl1Layout);
         pnl1Layout.setHorizontalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
-                .addGap(0, 236, Short.MAX_VALUE)
-                .addComponent(lb1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(249, 249, 249))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb2)
-                .addGap(207, 207, 207))
             .addGroup(pnl1Layout.createSequentialGroup()
-                .addGap(425, 425, 425)
-                .addComponent(btn1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lb2)
+                            .addComponent(lb1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addGap(423, 423, 423)
+                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         pnl1Layout.setVerticalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(lb1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(166, 166, 166)
+                .addComponent(lb1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                .addComponent(btn1)
-                .addGap(160, 160, 160))
+                .addGap(86, 86, 86)
+                .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addComponent(lblAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl1, javax.swing.GroupLayout.Alignment.TRAILING, 1149, 1149, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
@@ -103,6 +123,10 @@ public class WelcomeWindow extends javax.swing.JFrame {
         new Keyboard().setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_btn1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -143,6 +167,7 @@ public class WelcomeWindow extends javax.swing.JFrame {
     private javax.swing.JButton btn1;
     private javax.swing.JLabel lb1;
     private javax.swing.JLabel lb2;
+    private javax.swing.JLabel lblAuthor;
     private javax.swing.JPanel pnl1;
     // End of variables declaration//GEN-END:variables
 }
