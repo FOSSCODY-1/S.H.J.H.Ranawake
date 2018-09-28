@@ -25,7 +25,7 @@ public class Keyboard extends javax.swing.JFrame {
     public Keyboard() {
         
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard2.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard1.png")));
         setTitle("Typing Trainer");
         try {
             lblKeyboard.setIcon(viewUtil.getScaledImage(lblKeyboard.getWidth(), lblKeyboard.getHeight(), getClass().getResource("images/keyboard.png")));

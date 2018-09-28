@@ -1,5 +1,8 @@
 
+import java.awt.Toolkit;
+import java.io.IOException;
 import static java.lang.Thread.sleep;
+import java.net.MalformedURLException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -21,13 +24,32 @@ public class TypingWindow extends javax.swing.JFrame {
      * Creates new form TypingWindow
      */
     
-    String[] words = {"Cat","Dog", "Help", "Cartoon", "FHsJKL", "Fhsuai"};
+    String[] words = {  "electronic",  "help", "cartoon", "education"," dog", "movie", "song", "school", "person", "writer",
+                        "girl", "peace" ,"thief",  "love", "niece", "royal", "sister", "animal", "sorrow", "dreadful",
+                        "friend", "mother", "nurse", "vehicle", "seed", "happiness", "rest", "baby", "telephone", "sweet",
+                        "father", "bag", "mouse", "tea", "environment", "honey", "tree", "boy", "evening", "game",
+                        "sun",  "truth", "laptop", "pond", "brother", "process", "flowers", "money", "lake","wonder",
+                        "drama", "flash", "sea","time", "nail", "wind", "jacket", "alone", "boat", "decent",
+                        "television", "monkey", "snow", "breakfast", "nose", "sound", "minute", "instruction", "human", "morning",
+                        "honesty",  "story", "invisible", "expert", "expression", "quiet", "table", "piece", "finger", "break", 
+                        "dress", "strange", "luck", "posture", "effort", "moon", "head", "phone", "attention", "compromise", 
+                        "danger", "voice", "family", "university", "software", "debate", "product", "yoghurt", "vegetable", "principle"};
     int x;
     Thread thread1;
     int score;
+    int count=0;
     
     public TypingWindow() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard.png")));
+        setTitle("Typing Trainer");
+        try {
+            lblKeyboard.setIcon(viewUtil.getScaledImage(lblKeyboard.getWidth(), lblKeyboard.getHeight(), getClass().getResource("images/keyboard.png")));
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Keyboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Keyboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         pbScore.setValue(0);
         pbScore.setMaximum(100);
         
@@ -73,13 +95,18 @@ public class TypingWindow extends javax.swing.JFrame {
         lb3 = new javax.swing.JLabel();
         lb4 = new javax.swing.JLabel();
         lb5 = new javax.swing.JLabel();
-        lb7 = new javax.swing.JLabel();
+        lblKeyboard = new javax.swing.JLabel();
         lblText = new javax.swing.JLabel();
+        lblAuthor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        pnl2.setBackground(new java.awt.Color(255, 204, 204));
+        pnl2.setBackground(new java.awt.Color(204, 204, 204));
+        pnl2.setPreferredSize(new java.awt.Dimension(1100, 700));
 
+        txt1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txt1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt1FocusGained(evt);
@@ -94,6 +121,11 @@ public class TypingWindow extends javax.swing.JFrame {
         pbScore.setMaximum(200);
 
         pbTimer.setMaximum(60);
+        pbTimer.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                pbTimerStateChanged(evt);
+            }
+        });
 
         lb3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         lb3.setText("Type the words in the display");
@@ -104,11 +136,19 @@ public class TypingWindow extends javax.swing.JFrame {
         lb5.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         lb5.setText("Time is running...");
 
-        lb7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/keyboard.png"))); // NOI18N
-        lb7.setPreferredSize(new java.awt.Dimension(440, 145));
+        lblKeyboard.setPreferredSize(new java.awt.Dimension(440, 145));
 
         lblText.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        lblAuthor.setFont(new java.awt.Font("Vivaldi", 0, 24)); // NOI18N
+        lblAuthor.setText("SulaRanawake");
+
+        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel1.setText("Select the typing area to start the timer");
+
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
+        jLabel2.setText("You have 1min");
 
         javax.swing.GroupLayout pnl2Layout = new javax.swing.GroupLayout(pnl2);
         pnl2.setLayout(pnl2Layout);
@@ -122,23 +162,34 @@ public class TypingWindow extends javax.swing.JFrame {
                     .addGroup(pnl2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(lb4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lb3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(136, 136, 136)
                 .addComponent(lb5, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(pnl2Layout.createSequentialGroup()
                 .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl2Layout.createSequentialGroup()
-                        .addGap(361, 361, 361)
-                        .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(lblAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl2Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(lb7, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(75, 75, 75)
+                        .addComponent(lblKeyboard, javax.swing.GroupLayout.PREFERRED_SIZE, 943, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl2Layout.createSequentialGroup()
-                        .addGap(384, 384, 384)
-                        .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel2)
+                        .addGap(162, 162, 162)
+                        .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl2Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnl2Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnl2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl2Layout.createSequentialGroup()
                     .addContainerGap(716, Short.MAX_VALUE)
@@ -149,21 +200,30 @@ public class TypingWindow extends javax.swing.JFrame {
             pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lb3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl2Layout.createSequentialGroup()
                         .addComponent(pbScore, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lb5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lb5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lb3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lb7, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl2Layout.createSequentialGroup()
+                        .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(pnl2Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
+                .addComponent(lblKeyboard, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnl2Layout.createSequentialGroup()
                     .addGap(23, 23, 23)
@@ -171,7 +231,7 @@ public class TypingWindow extends javax.swing.JFrame {
                     .addContainerGap(514, Short.MAX_VALUE)))
         );
 
-        lb7.getAccessibleContext().setAccessibleName("lb7");
+        lblKeyboard.getAccessibleContext().setAccessibleName("lb7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,10 +241,11 @@ public class TypingWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl2, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt1ActionPerformed
@@ -195,7 +256,12 @@ public class TypingWindow extends javax.swing.JFrame {
         //match the strings
             //if matches increment score
             if(text1.equals(text2)){
-                score++;
+                count=count+words[x].length();
+                score=score+(count)/5;
+                pbScore.setValue(score);
+            }
+            else{
+                score--;
                 pbScore.setValue(score);
             }
             
@@ -210,9 +276,12 @@ public class TypingWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_txt1ActionPerformed
 
     private void txt1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt1FocusGained
-        System.out.println("Got focus");
         thread1.start();
     }//GEN-LAST:event_txt1FocusGained
+
+    private void pbTimerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pbTimerStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pbTimerStateChanged
 
     /**
      * @param args the command line arguments
@@ -250,10 +319,13 @@ public class TypingWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lb3;
     private javax.swing.JLabel lb4;
     private javax.swing.JLabel lb5;
-    private javax.swing.JLabel lb7;
+    private javax.swing.JLabel lblAuthor;
+    private javax.swing.JLabel lblKeyboard;
     private javax.swing.JLabel lblText;
     private javax.swing.JProgressBar pbScore;
     private javax.swing.JProgressBar pbTimer;
