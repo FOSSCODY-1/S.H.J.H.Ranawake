@@ -68,6 +68,6 @@ Please feel free to contact the owner via email or add as an issue before making
  
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+### Acknowledgments
 * My family for the lifelong support
 * My friends who supported and encouraged me to make this project a success
