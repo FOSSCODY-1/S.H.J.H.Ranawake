@@ -37,21 +37,21 @@ public class TypingWindow extends javax.swing.JFrame {
     int x;
     Thread thread1;
     int score, NoOfErrors=0;
-    int count=0;
+    int count=0,wordcount=0;
     
     public TypingWindow() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images/keyboard.png")));
         setTitle("Typing Trainer");
         try {
-            lblKeyboard.setIcon(viewUtil.getScaledImage(lblKeyboard.getWidth(), lblKeyboard.getHeight(), getClass().getResource("images/keyboard.png")));
+            lblKeyboard.setIcon(viewUtil.getScaledImage(lblKeyboard.getWidth(), lblKeyboard.getHeight(), getClass().getResource("Images/keyboard.png")));
         } catch (MalformedURLException ex) {
             Logger.getLogger(Keyboard.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Keyboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        pbScore.setValue(0);
-        pbScore.setMaximum(100);
+        pbwordcount.setValue(0);
+        pbwordcount.setMaximum(120);
         
         Random r = new Random();
         x = r.nextInt(words.length);
@@ -70,6 +70,7 @@ public class TypingWindow extends javax.swing.JFrame {
                 }
                 sec--;
             }
+            score=((count))-NoOfErrors; 
             new Scorewindow(score).setVisible(true);
             dispose();
         });
@@ -90,7 +91,7 @@ public class TypingWindow extends javax.swing.JFrame {
 
         pnl2 = new javax.swing.JPanel();
         txt1 = new javax.swing.JTextField();
-        pbScore = new javax.swing.JProgressBar();
+        pbwordcount = new javax.swing.JProgressBar();
         pbTimer = new javax.swing.JProgressBar();
         lb3 = new javax.swing.JLabel();
         lb4 = new javax.swing.JLabel();
@@ -118,7 +119,7 @@ public class TypingWindow extends javax.swing.JFrame {
             }
         });
 
-        pbScore.setMaximum(200);
+        pbwordcount.setMaximum(200);
 
         pbTimer.setMaximum(60);
         pbTimer.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -131,7 +132,7 @@ public class TypingWindow extends javax.swing.JFrame {
         lb3.setText("Type the words in the display");
 
         lb4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        lb4.setText("Your Score");
+        lb4.setText("Word counter");
 
         lb5.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         lb5.setText("Time is running...");
@@ -158,10 +159,10 @@ public class TypingWindow extends javax.swing.JFrame {
                 .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl2Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(pbScore, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pbwordcount, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(lb4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(77, 77, 77)
+                        .addComponent(lb4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lb3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(136, 136, 136)
@@ -202,7 +203,7 @@ public class TypingWindow extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl2Layout.createSequentialGroup()
-                        .addComponent(pbScore, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pbwordcount, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,13 +257,14 @@ public class TypingWindow extends javax.swing.JFrame {
         //match the strings
             //if matches increment score
             if(text1.equals(text2)){
-                count=count+text1.length();    
+                count=count+text1.length();
             }
             else{
                 NoOfErrors++;
             }
-            score=score+((count)/5)-NoOfErrors;
-            pbScore.setValue(score);
+            wordcount++;
+            
+            pbwordcount.setValue(wordcount);
             if(++x > words.length-1){
                     x=0;
             }
@@ -325,8 +327,8 @@ public class TypingWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lblAuthor;
     private javax.swing.JLabel lblKeyboard;
     private javax.swing.JLabel lblText;
-    private javax.swing.JProgressBar pbScore;
     private javax.swing.JProgressBar pbTimer;
+    private javax.swing.JProgressBar pbwordcount;
     private javax.swing.JPanel pnl2;
     private javax.swing.JTextField txt1;
     // End of variables declaration//GEN-END:variables
