@@ -54,7 +54,7 @@ Please feel free to contact the owner via email or add as an issue before making
  
  ### License
  
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 * My family for the lifelong support
