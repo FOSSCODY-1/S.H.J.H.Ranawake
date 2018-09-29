@@ -26,7 +26,7 @@ Double click it to start the application.
 2.  Double click it to start the application.
 
 3.  Click on "Begin" button, it will take you to the next page.
-    There will be an introduction to touch typing in the page.
+    There will be an introduction to touch typing in the page.</br>
     
 4.  To proceed click on "Start" button.
     It will take you to the next window.
@@ -40,6 +40,18 @@ Double click it to start the application.
     
 7.  Close button will close the application in any window.
   ```
+###  Welcome Window</br>
+![WelcomeWindow](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/blob/master/Typing%20Trainer/Images/Welcome_Window.PNG)</br>
+
+### Touch Typing Window
+![TouchTypingWindow](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/blob/master/Typing%20Trainer/Images/Touch_Typing.PNG)</br>
+
+### Typing Window
+![TypingWindow](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/blob/master/Typing%20Trainer/Images/Typing_window.PNG)</br>
+
+### Score Window
+![ScoreWindow](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/blob/master/Typing%20Trainer/Images/Score_Window.PNG)</br>
+
 ### Built with
 
 NetBeans IDE 8.2
