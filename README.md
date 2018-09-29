@@ -3,11 +3,10 @@
 
 sula.ranawake@gmail.com
 
+![keyboard](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/blob/master/Typing%20Trainer/src/Images/keyboard.png)
+
 Typing Trainer 1.0 is a simple application which measures the typing speed of the user in characters per minute(CPM) and encourage users to learn touch typing. 
 
-### How to Setup
-
-Download the ____
 
 ### Prerequisites
 
@@ -15,25 +14,29 @@ To run the program you need to have Java virtual machine.
 
 ### Installing
 
+Download the Typing_Trainer.jar file to your computer.
+Double click it to start the application.
+
 ### Instructions to use the program
 
 ```Download the 
-1.  Double click on the "Typing_Trainer.jar" file in the ________
+1.  Download the Typing_Trainer.jar file to your computer.
+2.  Double click it to start the application.
 
-2.  Click on "Begin" button, it will take you to the next page.
+3.  Click on "Begin" button, it will take you to the next page.
     There will be an introduction to touch typing in the page.
     
-3.  To proceed click on "Start" button.
+4.  To proceed click on "Start" button.
     It will take you to the next window.
     
-4.  To start the timer select the typing area. You will have 60 seconds to finish typing.
+5.  To start the timer select the typing area. You will have 60 seconds to finish typing.
     The number of words that appeared will be counted by the word counter.
     After the 60 seconds pass, you will be taken to the next page which shows your score(in CPM).
     
-5.  To Try again, click on the "Try Again" button.
+6.  To Try again, click on the "Try Again" button.
     It will take you to the first page.
     
-6.  Close button will close the application in any window.
+7.  Close button will close the application in any window.
   ```
 ### Built with
 
