@@ -21,6 +21,7 @@ Double click it to start the application.
 
 ```Download the 
 1.  Download the Typing_Trainer.jar file to your computer.
+
 2.  Double click it to start the application.
 
 3.  Click on "Begin" button, it will take you to the next page.
