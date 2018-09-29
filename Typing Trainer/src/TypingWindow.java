@@ -36,7 +36,7 @@ public class TypingWindow extends javax.swing.JFrame {
                         "danger", "voice", "family", "university", "software", "debate", "product", "yoghurt", "vegetable", "principle"};
     int x;
     Thread thread1;
-    int score;
+    int score, NoOfErrors=0;
     int count=0;
     
     public TypingWindow() {
@@ -256,15 +256,13 @@ public class TypingWindow extends javax.swing.JFrame {
         //match the strings
             //if matches increment score
             if(text1.equals(text2)){
-                count=count+words[x].length();
-                score=score+(count)/5;
-                pbScore.setValue(score);
+                count=count+text1.length();    
             }
             else{
-                score--;
-                pbScore.setValue(score);
+                NoOfErrors++;
             }
-            
+            score=score+((count)/5)-NoOfErrors;
+            pbScore.setValue(score);
             if(++x > words.length-1){
                     x=0;
             }
