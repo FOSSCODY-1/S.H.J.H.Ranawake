@@ -14,7 +14,7 @@ To run the program you need to have Java virtual machine.
 
 ### Installing
 
-Download the Typing_Trainer.jar file to your computer.
+Download the [Typing_Trainer.jar](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/Typing_Trainer.jar) file to your computer.
 Double click it to start the application.
 
 ### Instructions to use the program
@@ -53,7 +53,7 @@ Please feel free to contact the owner via email or add as an issue before making
  
  ### License
  
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake/LICENSE) file for details.
 
 ## Acknowledgments
 * My family for the lifelong support
