@@ -14,8 +14,8 @@ To run the program you need to have Java virtual machine.
 
 ### Installing
 
-Download the Typing_Trainer.jar file on the master branch to your computer.
-Also you can download it [here](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake.git)
+Download the Typing_Trainer.jar file on the master branch to your computer.</br>
+Also you can download it [here](https://github.com/FOSSCODY-1/S.H.J.H.Ranawake.git)</br>
 Double click it to start the application.
 
 ### Instructions to use the program
